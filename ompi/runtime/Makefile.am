@@ -23,6 +23,8 @@
 
 dist_ompidata_DATA += runtime/help-mpi-runtime.txt
 
+DEFS +=  -DOMPI_SOURCES_REPO_REV='"$(shell ./runtime/src_revision.sh)"'
+
 headers += \
         runtime/mpiruntime.h \
 	runtime/ompi_cr.h \

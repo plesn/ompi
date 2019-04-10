@@ -134,6 +134,13 @@ void ompi_info_show_ompi_version(const char *scope)
     (void)opal_asprintf(&tmp, "%s:version:repo", ompi_info_type_ompi);
     opal_info_out("Open MPI repo revision", tmp, OMPI_REPO_REV);
     free(tmp);
+    /*
+     * OMPI_SOURCES_REPO_REV is not defined: it must be set at *build time*
+     * using -DOMPI_SOURCES_REPO_REV='"..."'
+     */
+    (void)opal_asprintf(&tmp, "%s:version:src", ompi_info_type_ompi);
+    opal_info_out("Sources repo revision", tmp, OMPI_SOURCES_REPO_REV);
+    free(tmp);
     (void)opal_asprintf(&tmp, "%s:version:release_date", ompi_info_type_ompi);
     opal_info_out("Open MPI release date", tmp, OMPI_RELEASE_DATE);
     free(tmp);
